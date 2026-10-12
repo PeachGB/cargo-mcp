@@ -1,0 +1,19 @@
+[package]
+name = "cargo-mcp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.104"
+cargo_metadata = "0.23.1"
+rmcp = { version = "3.5.1", features = ["server", "transport-io", "macros"] }
+schemars = "1.2.2"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+tokio = { version = "1.53.2", features = ["macros", "rt-multi-thread", "process", "io-util", "time"] }
+
+[target."cfg(unix)".dependencies]
+libc = "0.2.190"
+
+[dev-dependencies]
+tempfile = "3.27.0"
